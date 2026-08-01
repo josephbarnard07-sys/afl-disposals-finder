@@ -1,5 +1,4 @@
 import { parquetReadObjects } from "hyparquet";
-import { compressors } from "hyparquet-compressors";
 
 const RELEASES_API =
   "https://api.github.com/repos/jimmyday12/fitzroy_data/releases/tags/data";
@@ -40,9 +39,8 @@ export async function fetchAflTablesPlayerGames(
   const fileRes = await fetch(asset.browser_download_url);
   const buffer = await fileRes.arrayBuffer();
 
-  const rows = (await parquetReadObjects({
+const rows = (await parquetReadObjects({
     file: buffer,
-    compressors,
   })) as RawRow[];
 
   return rows.filter((r) => seasons.includes(r.Season));
