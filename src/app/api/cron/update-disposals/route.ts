@@ -6,9 +6,9 @@ export const maxDuration = 60;
 
 export async function GET(req: NextRequest) {
   const auth = req.headers.get("authorization");
-  if (auth !== `Bearer ${process.env.CRON_SECRET}`) {
-    return new NextResponse("Unauthorized", { status: 401 });
-  }
+ // if (auth !== `Bearer ${process.env.CRON_SECRET}`) {
+  //  return new NextResponse("Unauthorized", { status: 401 });
+  //}
 
   try {
     const rows = await fetchAflTablesPlayerGames([2024, 2025, 2026]);
