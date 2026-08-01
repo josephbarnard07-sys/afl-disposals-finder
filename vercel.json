@@ -1,0 +1,6 @@
+{
+  "crons": [
+    { "path": "/api/cron/update-odds", "schedule": "0 20 * * *" },
+    { "path": "/api/cron/update-disposals", "schedule": "0 6 * * 2" }
+  ]
+}
